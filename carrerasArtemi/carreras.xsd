@@ -1,0 +1,38 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    targetNamespace="https://www.w3schools.com"
+    xmlns="https://www.w3schools.com"
+    elementFormDefault="qualified">
+    <xs:element name="carreras">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="carrera" type="carreraType" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="carreraType">
+        <xs:sequence>
+            <xs:element name="nombreCarrera" />
+            <xs:element name="fechaCarrera" />
+            <xs:element name="islaCelebracion" />
+            <xs:element name="participantes" type="participantesType" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="participantesType">
+        <xs:sequence>
+            <xs:element name="participante" type="participanteType" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="participanteType">
+        <xs:sequence>
+            <xs:element name="dorsalParticipante" />
+            <xs:element name="nombreParticipante" />
+            <xs:element name="apellidosParticipante" />
+            <xs:element name="edad" />
+            <xs:element name="historial" />
+        </xs:sequence>
+
+    </xs:complexType>
+</xs:schema>

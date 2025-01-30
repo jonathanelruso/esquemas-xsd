@@ -1,0 +1,78 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    targetNamespace="https://www.w3schools.com"
+    xmlns="https://www.w3schools.com"
+    elementFormDefault="qualified">
+    <xs:element name="especies">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="especie" type="especieType" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="especieType">
+        <xs:sequence>
+            <xs:element name="idEspecie" />
+            <xs:element name="estaEnPeligro" type="estaEnPeligroType" />
+            <xs:element name="paises" type="paisesType" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- Restriccion estaEnPeligro: valores "si" o "no" -->
+    <xs:simpleType name="estaEnPeligroType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="si" />
+            <xs:enumeration value="no" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:complexType name="paisesType">
+        <xs:sequence>
+            <xs:element name="pais" type="paisType" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="paisType">
+        <xs:sequence>
+            <xs:element name="idPais" />
+            <xs:element name="region" type="regionType" minOccurs="3" maxOccurs="9" />
+            <xs:element name="organizacion" type="organizacionType" minOccurs="1" maxOccurs="5  " />
+        </xs:sequence>
+    </xs:complexType>
+
+
+    <xs:complexType name="regionType">
+        <xs:sequence>
+            <xs:element name="idRegion" />
+            <xs:element name="numEjemplares" type="numEjemplaresType" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:simpleType name="numEjemplaresType">
+        <xs:restriction base="xs:int">
+            <xs:minExclusive value="50" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:complexType name="organizacionType">
+        <xs:sequence>
+            <xs:element name="idOrganizacion" />
+            <xs:element name="nombreOrganizacion" type="nombreOrganizacionType" />
+            <xs:element name="tipoOrganizacion" type="tipoOrganizacionType" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="nombreOrganizacionType">
+        <xs:attribute name="fechaFundacion">
+            <xs:simpleType>
+                <xs:restriction base="xs:date" />
+            </xs:simpleType>
+        </xs:attribute>
+    </xs:complexType>
+
+    <xs:simpleType name="tipoOrganizacionType">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[A-Z]{3}[a-z]{0,5}[0-9]{5}[a-z]{1}"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>

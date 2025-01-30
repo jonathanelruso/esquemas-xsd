@@ -1,0 +1,27 @@
+<especies xmlns="https://www.w3schools.com"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="https://www.w3schools.com especies.xsd">
+
+    <especie>
+        <idEspecie></idEspecie>
+        <estaEnPeligro>no</estaEnPeligro>
+        <paises>
+            <pais>
+                <idPais>43543</idPais>
+                <region>
+                    <idRegion></idRegion>
+                    <numEjemplares>59</numEjemplares>
+                </region>
+                <region></region>
+                <region></region>
+
+                <organizacion>
+                    <idOrganizacion></idOrganizacion>
+                    <nombreOrganizacion fechaFundacion="2000-01-24" />
+                    <tipoOrganizacion>ADSufuw80979a</tipoOrganizacion>
+                </organizacion>
+
+            </pais>
+        </paises>
+    </especie>
+</especies>
